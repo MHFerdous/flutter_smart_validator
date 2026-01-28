@@ -1,5 +1,5 @@
 import 'package:flutter_test/flutter_test.dart';
-import 'package:smart_form_validator/smart_form_validator.dart';
+import 'package:flutter_smart_validator/flutter_smart_validator.dart';
 
 void main() {
   group('SmartValidator tests', () {
@@ -22,11 +22,8 @@ void main() {
     });
 
     test('Chain multiple rules', () {
-      final validate = SmartValidator()
-          .required()
-          .email()
-          .minLength(10)
-          .build();
+      final validate =
+          SmartValidator().required().email().minLength(10).build();
 
       expect(validate(''), 'This field is required');
       expect(validate('abc'), 'Must be a valid email address');

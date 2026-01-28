@@ -1,6 +1,6 @@
 # Smart Form Validator
 
-[![pub package](https://img.shields.io/pub/v/smart_form_validator.svg)](https://pub.dev/packages/smart_form_validator)
+[![pub package](https://img.shields.io/pub/v/flutter_smart_validator.svg)](https://pub.dev/packages/flutter_smart_validator)
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
 [![Platform](https://img.shields.io/badge/platform-flutter-blue.svg)](https://flutter.dev/)
 
@@ -62,7 +62,7 @@ Add to your `pubspec.yaml`:
 
 ```yaml
 dependencies:
-  smart_form_validator: ^0.0.1
+  flutter_smart_validator: ^0.0.1
 ```
 
 Then install:
@@ -74,7 +74,7 @@ flutter pub get
 Import in your Dart file:
 
 ```dart
-import 'package:smart_form_validator/smart_form_validator.dart';
+import 'package:flutter_smart_validator/flutter_smart_validator.dart';
 ```
 
 ---
@@ -85,7 +85,7 @@ import 'package:smart_form_validator/smart_form_validator.dart';
 
 ```dart
 import 'package:flutter/material.dart';
-import 'package:smart_form_validator/smart_form_validator.dart';
+import 'package:flutter_smart_validator/flutter_smart_validator.dart';
 
 class LoginForm extends StatelessWidget {
   final _formKey = GlobalKey<FormState>();
@@ -475,10 +475,10 @@ If you find this package helpful, please:
 
 ## 📞 Contact & Links
 
-- 📦 [Pub.dev Package](https://pub.dev/packages/smart_form_validator)
-- 📖 [API Documentation](https://pub.dev/documentation/smart_form_validator/latest/)
-- 🐛 [Issue Tracker](https://github.com/yourusername/smart_form_validator/issues)
-- 💬 [Discussions](https://github.com/yourusername/smart_form_validator/discussions)
+- 📦 [Pub.dev Package](https://pub.dev/packages/flutter_smart_validator)
+- 📖 [API Documentation](https://pub.dev/documentation/flutter_smart_validator/latest/)
+- 🐛 [Issue Tracker](https://github.com/yourusername/flutter_smart_validator/issues)
+- 💬 [Discussions](https://github.com/yourusername/flutter_smart_validator/discussions)
 
 ---
 

@@ -1,5 +1,5 @@
 name: example
-description: "Example application for smart_form_validator"
+description: "Example application for flutter_smart_validator"
 publish_to: 'none'
 version: 1.0.0+1
 
@@ -10,7 +10,7 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  smart_form_validator:
+  flutter_smart_validator:
     path: ../
 
 dev_dependencies:

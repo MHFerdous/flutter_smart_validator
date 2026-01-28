@@ -73,7 +73,7 @@ A clean, chainable, and developer-friendly form validation package for Flutter.
 
 ```
 lib/
-├── smart_form_validator.dart       # Main export file
+├── flutter_smart_validator.dart       # Main export file
 └── src/
     ├── smart_validator.dart        # Core validator class
     ├── async/

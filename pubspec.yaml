@@ -1,12 +1,11 @@
-name: smart_form_validator
+name: flutter_smart_validator
 description: A clean, chainable, and developer-friendly form validation package for Flutter. Build complex validation rules with minimal boilerplate using a fluent API.
 version: 0.0.1
 
-# Update these URLs with your actual repository
-repository: https://github.com/YOUR_USERNAME/smart_form_validator
-homepage: https://github.com/YOUR_USERNAME/smart_form_validator
-issue_tracker: https://github.com/YOUR_USERNAME/smart_form_validator/issues
-documentation: https://pub.dev/documentation/smart_form_validator/latest/
+repository: https://github.com/MHFerdous/flutter_smart_validator
+homepage: https://github.com/MHFerdous/flutter_smart_validator
+issue_tracker: https://github.com/MHFerdous/flutter_smart_validator/issues
+#documentation: https://pub.dev/documentation/flutter_smart_validator/latest/
 
 # Optional: Add topics for better discoverability
 topics:

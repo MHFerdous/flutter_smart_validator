@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:smart_form_validator/smart_form_validator.dart';
+import 'package:flutter_smart_validator/flutter_smart_validator.dart';
 
 void main() {
   runApp(const MyApp());
