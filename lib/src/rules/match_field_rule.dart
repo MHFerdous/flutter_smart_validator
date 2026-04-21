@@ -20,7 +20,7 @@ class MatchFieldRule extends ValidationRule {
   /// MatchFieldRule('password', 'Password')
   /// ```
   MatchFieldRule(this.fieldKey, this.fieldName, [String? errorMessage])
-    : super(errorMessage ?? 'Must match $fieldName');
+    : super(errorMessage ?? 'Must match {fieldName}');
 
   @override
   String? validate(String? value, [Map<String, dynamic>? context]) {
@@ -29,7 +29,10 @@ class MatchFieldRule extends ValidationRule {
     }
 
     if (context == null || !context.containsKey(fieldKey)) {
-      return 'Unable to compare with $fieldName';
+      return 'Unable to compare with {fieldName}'.replaceAll(
+        '{fieldName}',
+        fieldName,
+      );
     }
 
     final compareValue = context[fieldKey];

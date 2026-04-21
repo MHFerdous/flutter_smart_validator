@@ -6,8 +6,12 @@ import 'rules/match_field_rule.dart';
 import 'rules/max_length_rule.dart';
 import 'rules/min_length_rule.dart';
 import 'rules/number_rule.dart';
+import 'rules/phone_rule.dart';
+import 'rules/regex_rule.dart';
 import 'rules/required_rule.dart';
 import 'rules/uppercase_rule.dart';
+import 'rules/url_rule.dart';
+import 'rules/credit_card_rule.dart';
 
 /// A chainable, developer-friendly form field validator.
 ///
@@ -188,6 +192,30 @@ class SmartValidator {
         hintsGenerator: hintsGenerator,
       ),
     );
+    return this;
+  }
+
+  /// Adds a regex validation.
+  SmartValidator regex(RegExp pattern, {String? message}) {
+    _rules.add(RegexRule(pattern, message ?? 'Invalid format'));
+    return this;
+  }
+
+  /// Adds a URL validation.
+  SmartValidator url({String? message}) {
+    _rules.add(UrlRule(message ?? 'Must be a valid URL'));
+    return this;
+  }
+
+  /// Adds a credit card validation.
+  SmartValidator creditCard({String? message}) {
+    _rules.add(CreditCardRule(message ?? 'Invalid credit card number'));
+    return this;
+  }
+
+  /// Adds a phone validation.
+  SmartValidator phone({String? message}) {
+    _rules.add(PhoneRule(message ?? 'Invalid phone number'));
     return this;
   }
 

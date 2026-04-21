@@ -1,3 +1,20 @@
+## 0.1.0 - 2026-04-21
+
+### ✨ New Features
+- **New Validation Rules**: Added `RegexRule`, `UrlRule`, `CreditCardRule` (Luhn), and `PhoneRule`.
+- **Fluent API**: Added chainable methods for all new rules (`.regex()`, `.url()`, `.creditCard()`, `.phone()`).
+- **Standardized Placeholders**: All length-based rules now use `{min}` and `{max}` placeholders for flexible custom messages.
+- **Enhanced `SmartFormField`**: 
+    - Added support for `prefixIcon` and `suffixIcon`.
+    - Added `AnimatedSwitcher` for smooth error and hint transitions.
+
+### 🐞 Bug Fixes
+- Fixed a logical error in multi-rule validation tests.
+- Fixed an inconsistency in `MatchFieldRule` placeholder logic.
+- Resolved `prefer_const_constructors` linting issues in `PasswordStrength` utility.
+
+---
+
 ## 0.0.1 - 2026-01-28
 
 ### 🎉 Initial Release

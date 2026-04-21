@@ -20,7 +20,7 @@ class PasswordStrength {
   /// ```
   static PasswordStrengthResult analyze(String password) {
     if (password.isEmpty) {
-      return PasswordStrengthResult(
+      return const PasswordStrengthResult(
         score: 0.0,
         suggestions: ['Password is required'],
       );

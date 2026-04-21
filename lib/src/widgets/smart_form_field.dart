@@ -67,6 +67,15 @@ class SmartFormField extends StatefulWidget {
   /// Whether the field is enabled.
   final bool enabled;
 
+  /// Prefix icon.
+  final Widget? prefixIcon;
+
+  /// Suffix icon.
+  final Widget? suffixIcon;
+
+  /// Custom padding.
+  final EdgeInsetsGeometry? contentPadding;
+
   const SmartFormField({
     super.key,
     this.validator,
@@ -86,6 +95,9 @@ class SmartFormField extends StatefulWidget {
     this.minLines,
     this.maxLength,
     this.enabled = true,
+    this.prefixIcon,
+    this.suffixIcon,
+    this.contentPadding,
   });
 
   @override
@@ -151,7 +163,11 @@ class _SmartFormFieldState extends State<SmartFormField> {
         TextFormField(
           controller: _controller,
           initialValue: widget.initialValue,
-          decoration: widget.decoration,
+          decoration: (widget.decoration ?? const InputDecoration()).copyWith(
+            prefixIcon: widget.prefixIcon,
+            suffixIcon: widget.suffixIcon,
+            contentPadding: widget.contentPadding,
+          ),
           keyboardType: widget.keyboardType,
           obscureText: widget.obscureText,
           textInputAction: widget.textInputAction,
@@ -162,9 +178,11 @@ class _SmartFormFieldState extends State<SmartFormField> {
           enabled: widget.enabled,
           validator: (value) {
             final error = widget.validator?.call(value);
-            setState(() {
-              _currentError = error;
-            });
+            if (_currentError != error) {
+              setState(() {
+                _currentError = error;
+              });
+            }
             return widget.showErrors
                 ? null
                 : error; // Return null to prevent default error display
@@ -178,12 +196,29 @@ class _SmartFormFieldState extends State<SmartFormField> {
           onFieldSubmitted: widget.onFieldSubmitted,
         ),
 
-        // Custom error display
-        if (widget.showErrors) ValidationErrorText(errorMessage: _currentError),
+        // Custom error display with animation
+        AnimatedSwitcher(
+          duration: const Duration(milliseconds: 200),
+          child:
+              widget.showErrors && _currentError != null
+                  ? ValidationErrorText(
+                    key: ValueKey(_currentError),
+                    errorMessage: _currentError,
+                  )
+                  : const SizedBox.shrink(),
+        ),
 
-        // Live hints
-        if (widget.showLiveHints && _currentHints.isNotEmpty)
-          ValidationHintsList(hints: _currentHints),
+        // Live hints with animation
+        AnimatedSwitcher(
+          duration: const Duration(milliseconds: 200),
+          child:
+              widget.showLiveHints && _currentHints.isNotEmpty
+                  ? ValidationHintsList(
+                    key: ValueKey(_currentHints.join(',')),
+                    hints: _currentHints,
+                  )
+                  : const SizedBox.shrink(),
+        ),
       ],
     );
   }

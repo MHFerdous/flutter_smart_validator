@@ -10,7 +10,7 @@ class MinLengthRule extends ValidationRule {
   /// The [errorMessage] can include {min} placeholder which will be replaced
   /// with the actual minimum length value.
   MinLengthRule(this.minLength, [String? errorMessage])
-    : super(errorMessage ?? 'Must be at least $minLength characters');
+    : super(errorMessage ?? 'Must be at least {min} characters');
 
   @override
   String? validate(String? value, [Map<String, dynamic>? context]) {

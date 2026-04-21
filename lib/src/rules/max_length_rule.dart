@@ -10,7 +10,7 @@ class MaxLengthRule extends ValidationRule {
   /// The [errorMessage] can include {max} placeholder which will be replaced
   /// with the actual maximum length value.
   MaxLengthRule(this.maxLength, [String? errorMessage])
-    : super(errorMessage ?? 'Must not exceed $maxLength characters');
+    : super(errorMessage ?? 'Must not exceed {max} characters');
 
   @override
   String? validate(String? value, [Map<String, dynamic>? context]) {

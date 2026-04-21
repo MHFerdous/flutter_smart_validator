@@ -11,7 +11,7 @@ void main() {
 
     test('Min length', () {
       final validate = SmartValidator().minLength(5).build();
-      expect(validate('abc'), 'Minimum length is 5');
+      expect(validate('abc'), 'Must be at least 5 characters');
       expect(validate('abcdef'), null);
     });
 
@@ -27,7 +27,7 @@ void main() {
 
       expect(validate(''), 'This field is required');
       expect(validate('abc'), 'Must be a valid email address');
-      expect(validate('test@example'), 'Minimum length is 10');
+      expect(validate('a@b.co'), 'Must be at least 10 characters');
       expect(validate('test@example.com'), null);
     });
   });

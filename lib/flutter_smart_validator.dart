@@ -17,6 +17,10 @@ export 'src/rules/uppercase_rule.dart';
 export 'src/rules/lowercase_rule.dart';
 export 'src/rules/match_field_rule.dart';
 export 'src/rules/custom_rule.dart';
+export 'src/rules/regex_rule.dart';
+export 'src/rules/url_rule.dart';
+export 'src/rules/credit_card_rule.dart';
+export 'src/rules/phone_rule.dart';
 
 // Async validation
 export 'src/async/async_validator.dart';
