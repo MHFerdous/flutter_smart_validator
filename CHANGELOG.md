@@ -1,3 +1,10 @@
+## 0.1.1 - 2026-05-05
+
+### 📝 Documentation
+- Updated `README.md` with comprehensive examples and detailed rule descriptions.
+- Added author details and professional profile picture.
+- Enhanced `SmartFormField` documentation.
+
 ## 0.1.0 - 2026-04-21
 
 ### ✨ New Features

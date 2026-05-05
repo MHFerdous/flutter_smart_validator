@@ -62,7 +62,7 @@ Add to your `pubspec.yaml`:
 
 ```yaml
 dependencies:
-  flutter_smart_validator: ^0.1.0
+  flutter_smart_validator: ^0.1.1
 ```
 
 Then install:
