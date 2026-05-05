@@ -37,7 +37,7 @@ TextFormField(
 ### Core Capabilities
 
 - ⛓️ **Fluent Chainable API** - Readable, maintainable validation rules
-- 📦 **9+ Built-in Rules** - Required, email, length, number, case, matching, and more
+- 📦 **13+ Built-in Rules** - Required, email, length, number, case, matching, regex, url, phone, credit card, and more
 - 🔌 **Custom Validation** - Extend with your own logic in seconds
 - ⚡ **Async Support** - Debounced API validation (username availability, etc.)
 - 💡 **Live Hints** - Real-time feedback as users type
@@ -62,7 +62,7 @@ Add to your `pubspec.yaml`:
 
 ```yaml
 dependencies:
-  flutter_smart_validator: ^0.0.1
+  flutter_smart_validator: ^0.1.0
 ```
 
 Then install:
@@ -143,13 +143,15 @@ class LoginForm extends StatelessWidget {
 | `number()`     | Numeric value with optional range | `.number(min: 0, max: 100)`           |
 | `uppercase()`  | Contains uppercase letters        | `.uppercase(minCount: 2)`             |
 | `lowercase()`  | Contains lowercase letters        | `.lowercase(minCount: 1)`             |
+| `regex()`      | Matches RegExp pattern            | `.regex(RegExp(r'^[A-Z]+$'))`         |
+| `url()`        | Valid URL format                  | `.url()`                              |
+| `creditCard()` | Valid Credit Card (Luhn)          | `.creditCard()`                       |
+| `phone()`      | Valid Phone Number                | `.phone()`                            |
 | `matchField()` | Matches another field value       | `.matchField('password', 'Password')` |
 | `custom()`     | Your custom logic                 | `.custom((v) => /* logic */)`         |
 
-### Chaining Rules
-
 Combine any rules together:
-
+  
 ```dart
 SmartValidator()
   .required()
@@ -157,6 +159,16 @@ SmartValidator()
   .minLength(10)
   .maxLength(100)
   .build()
+```
+
+### Dynamic Custom Messages
+
+You can use `{min}` and `{max}` placeholders in your custom error messages for length and number rules:
+
+```dart
+SmartValidator()
+  .minLength(8, message: 'Must be at least {min} characters')
+  .number(min: 10, max: 50, message: 'Value must be between {min} and {max}')
 ```
 
 ---
@@ -274,9 +286,24 @@ TextFormField(
       .matchField('password', 'Password')
       .build(),
 )
+
+### 6. New Specialized Rules (v0.1.0)
+
+```dart
+// URL validation
+SmartValidator().url().build();
+
+// Phone number validation
+SmartValidator().phone().build();
+
+// Credit card (Luhn algorithm)
+SmartValidator().creditCard().build();
+
+// Custom Regex
+SmartValidator().regex(RegExp(r'^[A-Z]+$'), message: 'Uppercase only').build();
 ```
 
-### 6. Get All Errors
+### 7. Get All Errors
 
 Instead of stopping at the first error:
 
@@ -327,7 +354,26 @@ PasswordStrengthIndicator(
 
 ### SmartFormField
 
-A complete form field with built-in error display and hint support.
+A complete form field with built-in error display, hint support, and smooth transitions.
+
+```dart
+SmartFormField(
+  validator: SmartValidator().required().email().build(),
+  smartValidator: myValidator, // Optional: for live hints
+  showLiveHints: true,
+  prefixIcon: Icon(Icons.email),
+  suffixIcon: Icon(Icons.check),
+  decoration: InputDecoration(
+    labelText: 'Email Address',
+    border: OutlineInputBorder(),
+  ),
+)
+```
+
+**Features:**
+- ✨ **Animated Transitions** - Errors and hints fade in/out smoothly.
+- 🎨 **Custom Icons** - Support for `prefixIcon` and `suffixIcon`.
+- 🛠️ **Convenience** - Manages its own `TextEditingController` if none provided.
 
 ---
 
@@ -473,13 +519,26 @@ If you find this package helpful, please:
 
 ---
 
+## 👤 Author
+  
+<p align="left">
+  <img src="https://avatars.githubusercontent.com/u/124442011?v=4" width="100" height="100" style="border-radius: 50%" alt="Md Mahmud Hossain Ferdous">
+</p>
+  
+**Md Mahmud Hossain Ferdous**  
+*Junior Flutter Developer*
+
+- 🌐 [Portfolio](https://mhferdous.netlify.app/)
+- 🐙 [GitHub](https://github.com/MHFerdous)
+- 💼 [LinkedIn](https://www.linkedin.com/in/ferdousmh/)
+
+---
+
 ## 📞 Contact & Links
 
 - 📦 [Pub.dev Package](https://pub.dev/packages/flutter_smart_validator)
 - 📖 [API Documentation](https://pub.dev/documentation/flutter_smart_validator/latest/)
-- 🐛 [Issue Tracker](https://github.com/yourusername/flutter_smart_validator/issues)
-- 💬 [Discussions](https://github.com/yourusername/flutter_smart_validator/discussions)
 
 ---
 
-<p align="center">Made with ❤️ for the Flutter community</p>
+<p align="center">Made with ❤️ by <a href="https://github.com/MHFerdous">MHFerdous</a> for the Flutter community</p>
